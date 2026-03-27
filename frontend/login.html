@@ -1,78 +1,59 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="mk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Event Planner login form using Bootstrap">
-    <title>Event Planner Login</title>
+    <meta name="description" content="Event Planner login form">
+    <title>Најава | Event Planner</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="d-flex align-items-center justify-content-center" style="min-height: 100vh; background-color: #333;">
+<body>
 
-    <section class="wrapper text-center position-relative" style="max-width: 400px; width: 100%;">
-        <div class="form signup">
-            <header class="h3 mb-4 text-white">Event Planner Login</header>
-            
-            <form id="loginForm" action="#" novalidate>
-                <input id="email" type="email" class="form-control my-2" placeholder="Email address" required>
+    <div class="bg-glow" style="top: -10%; left: -10%;"></div>
+    <div class="bg-glow" style="bottom: -10%; right: -10%; background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, rgba(0,0,0,0) 70%);"></div>
+
+    <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="row justify-content-center w-100">
+            <div class="col-md-6 col-lg-5 col-xl-4">
                 
-                <input id="password" type="password" class="form-control my-2" placeholder="Password" required>
-                
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="rememberMe">
-                        <label class="form-check-label text-white" for="rememberMe">Remember Me</label>
+                <div class="welcome-card text-center shadow-2xl">
+                    <header class="h2 fw-bold mb-4">Event<span style="color: #a855f7;">Planner</span></header>
+                    <p class="text-secondary mb-4 small">Внесете ги вашите податоци за најава</p>
+
+                    <form id="loginForm" novalidate>
+                        <div class="mb-3">
+                            <input id="email" type="email" class="form-control custom-input" placeholder="Емаил адреса" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <input id="password" type="password" class="form-control custom-input" placeholder="Лозинка" required>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-4 small">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe" style="background-color: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
+                                <label class="form-check-label text-secondary" for="rememberMe">Запомни ме</label>
+                            </div>
+                            <a href="forgot-password.html" class="text-decoration-none" style="color: #a855f7; font-weight: 600;">Заборавена лозинка?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-main w-100 mb-2 shadow">Најави се</button>
+                    </form>
+
+                    <div class="mt-4 pt-3 border-top border-secondary opacity-50">
+                        <p class="small text-white mb-0">Немате профил? 
+                            <a href="register.html" class="text-decoration-none" style="color: #a855f7; font-weight: 600;">Регистрирајте се</a>
+                        </p>
                     </div>
-                    <a href="forgot-password.html" class="text-white text-decoration-none">Forgot password?</a>
                 </div>
-                
-                <button type="submit" class="btn btn-light w-100 mt-3">Log In</button>
-            </form>
 
-            <div class="mt-3">
-                <a href="register.html" class="d-block text-white text-decoration-none">Don't have an account? Register</a>
             </div>
         </div>
-    </section>
+    </div>
 
     <script src="functions.js"></script>
-
-    <script>
-        const loginForm = document.getElementById("loginForm");
-        const emailInput = document.getElementById("email");
-        const passwordInput = document.getElementById("password");
-
-        loginForm.addEventListener("submit", function (event) {
-            event.preventDefault(); // Спречи ја страната да се рефрешира
-
-            const email = emailInput.value.trim();
-            const password = passwordInput.value.trim();
-
-            // Повикување на функциите од functions.js (како на сликата)
-            const emailIsValid = validateEmail(email);
-            const passwordIsValid = validatePassword(password);
-
-            // Напредна валидација со пораки според барањата
-            if (email === "" || password === "") {
-                alert("Грешка: пополнете ги сите полиња.");
-            } 
-            else if (validateLogin(email, password)) {
-                // Ако функциите вратат true, одиме на welcome.html
-                window.location.href = "welcome.html";
-            } 
-            else if (!emailIsValid && !passwordIsValid) {
-                alert("Грешка: email-от не е валиден, а лозинката мора да има мин. 8 карактери, голема буква, бројка и специјален знак.");
-            } 
-            else if (!emailIsValid) {
-                alert("Грешка: внесете валиден email.");
-            } 
-            else {
-                alert("Грешка: лозинката мора да има мин. 8 карактери, голема буква, бројка и специјален знак.");
-            }
-        });
-    </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
